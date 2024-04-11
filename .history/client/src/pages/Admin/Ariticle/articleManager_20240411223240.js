@@ -290,7 +290,9 @@ const ArticleManager = () => {
   };
   const handleDownloadAll = async () => {
     try {
-      window.open(`http://localhost:8080/api/article/download/all`);
+      const response = await articleApi.downloadAllArticles();
+      const blob = new Blob([response.data], { type: "application/zip" });
+      FileSaver.saveAs(blob, "articles.zip");
     } catch (error) {
       console.error("Failed to download all articles:", error);
       notification.error({
@@ -303,9 +305,11 @@ const ArticleManager = () => {
   // Function to handle downloading a single article
   const handleDownloadArticle = async (articleId) => {
     try {
-      window.open(
-        `http://localhost:8080/api/article/downloadbyid/${articleId}`
-      );
+      const response = await articleApi.downloadArticle(articleId);
+      const blob = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      });
+      FileSaver.saveAs(blob, `article_${articleId}.docx`);
     } catch (error) {
       console.error("Failed to download article:", error);
       notification.error({

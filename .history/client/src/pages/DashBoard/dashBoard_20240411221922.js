@@ -44,6 +44,7 @@ const DashBoard = () => {
     const [loading, setLoading] = useState(true);
     const [articles, setArticles] = useState([]);
     const [totalAcademicYears, setTotalAcademicYears] = useState(0);
+    const [totalAcademicYearsAll, setTotalAcademicYearsAll] = useState(0);
     const [totalByFaculty, setTotalFaculties] = useState(0);
     const [totalUser, setTotalUser] = useState(0);
     const [totalAritcle, setTotalAritcle] = useState(0);
@@ -81,6 +82,7 @@ const DashBoard = () => {
                     urlReponse,
                     browerReponse,
                 ] = await Promise.all([
+                    dashBoardApi.getTotalAcademicYears(),
                     dashBoardApi.getTotalByAcademic(facultyId),
                     dashBoardApi.getTotalByFaculty(facultyId),
                     dashBoardApi.getTotalByStatus(facultyId),
@@ -93,7 +95,7 @@ const DashBoard = () => {
                     count: item.count,
                 }));
                 setTotalAcademicYears(academicData);
-
+                setTotalAcademicYears.
                 const privateData = [
                     { name: "Public", count: facultyResponse.data.public },
                     { name: "Private", count: facultyResponse.data.private },
@@ -228,7 +230,39 @@ const DashBoard = () => {
                                                 </BarChart>
                                             </ResponsiveContainer>
                                         </Col>
+                                    </Row> 
+                                    <Row gutter={12}>
+                                        <Col span={24}>
+                                            <h3>
+                                                Chart By Academic Year
+                                            </h3>
+                                            <ResponsiveContainer
+                                                width="100%"
+                                                height={300}
+                                            >
+                                                <BarChart
+                                                    data={totalAcademicYears}
+                                                    margin={{
+                                                        top: 20,
+                                                        right: 30,
+                                                        left: 20,
+                                                        bottom: 5,
+                                                    }}
+                                                >
+                                                    <CartesianGrid strokeDasharray="3 3" />
+                                                    <XAxis dataKey="name" />
+                                                    <YAxis />
+                                                    <Tooltip />
+                                                    <Legend />
+                                                    <Bar
+                                                        dataKey="count"
+                                                        fill={COLORS[5]}
+                                                    />
+                                                </BarChart>
+                                            </ResponsiveContainer>
+                                        </Col>
                                     </Row>
+
                                     <Row gutter={12}>
                                         <Col span={24}>
                                             <h3>Chart By Prive With Faculty</h3>

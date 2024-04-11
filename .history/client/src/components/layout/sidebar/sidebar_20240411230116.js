@@ -108,10 +108,6 @@ function Sidebar({ isSidebarCollapsed, setIsSidebarCollapsed }) {
     ];
     const menuSidebarGuest = [
         {
-            key: "name-page",
-            title: "Guest Page",
-        },
-        {
             key: "dash-board",
             title: "Dashboards",
             link: "/dash-board",

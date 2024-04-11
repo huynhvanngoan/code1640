@@ -236,7 +236,7 @@ const AccountManagement = () => {
               style={{ width: 100, textAlign: "center" }}
               icon={<CheckCircleOutlined />}
             >
-              Coordinator
+              Marketing
             </Tag>
           ) : text === "department" ? (
             <Tag
@@ -245,7 +245,7 @@ const AccountManagement = () => {
               style={{ width: 100, textAlign: "center" }}
               icon={<CheckCircleOutlined />}
             >
-              Manager
+              Department
             </Tag>
           ) : text === "guest" ? (
             <Tag

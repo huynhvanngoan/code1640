@@ -40,7 +40,6 @@ import ariticle from "../../apis/articleApi";
 import commentApi from "../../apis/commentApi";
 import FileSaver from "file-saver";
 import logApi from "../../apis/logApi";
-import ModalTerms from "../../components/ModalTerms/ModalTerms";
 const { Option } = Select;
 const ArticleManagerStudent = () => {
   const [category, setCategory] = useState([]);
@@ -66,7 +65,8 @@ const ArticleManagerStudent = () => {
   const [agreeTermsModalVisible, setAgreeTermsModalVisible] = useState(false);
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
 
-
+  const handleCheckboxChange = (e) => {
+;
   const handleAgreeTermsChange = (e) => {
     setIsCheckboxChecked(e.target.checked);
     if (e.target.checked) {
@@ -247,7 +247,7 @@ const ArticleManagerStudent = () => {
     }
   };
   const handleOkUser = async (values) => {
-    if (!isCheckboxChecked) {
+    if (!agreeTerms) {
       // Notify the user to agree to terms
       notification.error({
         message: "Error",
@@ -315,7 +315,6 @@ const ArticleManagerStudent = () => {
               });
               setopenModalCreate(false);
               handleCategoryList();
-              setIsCheckboxChecked(false)
             }
           });
         } else {
@@ -793,25 +792,14 @@ const ArticleManagerStudent = () => {
               </Select>
             </Form.Item>
             <Form.Item style={{ marginBottom: 10 }}>
-              <Checkbox
-                checked={isCheckboxChecked}
-                onChange={handleAgreeTermsChange}
-              >
+              <Checkbox checked={agreeTerms} onChange={handleAgreeTermsChange}>
                 I agree to the terms and conditions
               </Checkbox>
+              <Checkbox onChange={handleCheckboxChange}>
+                Show all terms and conditions
+              </Checkbox>
             </Form.Item>
-
-            <ModalTerms
-              visible={agreeTermsModalVisible}
-              onOk={() => {
-                setAgreeTermsModalVisible(false);
-                setIsCheckboxChecked(true); // Checkbox is checked when ModalTerms OK button is clicked
-              }}
-              onCancel={() => {
-                setAgreeTermsModalVisible(false);
-                setIsCheckboxChecked(false);
-              }}
-            />
+            {showExample && <div>Example Term and conditions</div>}
           </Form>
         </Modal>
         <Modal

@@ -406,23 +406,6 @@ const AssetCategory = () => {
                   required: true,
                   message: "Please select the final closure date!",
                 },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    const closureDate = getFieldValue("closureDate");
-                    if (
-                      !closureDate ||
-                      !value ||
-                      moment(value).isAfter(closureDate)
-                    ) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      new Error(
-                        "Final Closure Date must be later than Closure Date!"
-                      )
-                    );
-                  },
-                }),
               ]}
               style={{ marginBottom: 10 }}
             >

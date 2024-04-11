@@ -72,7 +72,7 @@ function Sidebar({ isSidebarCollapsed, setIsSidebarCollapsed }) {
     const menuSidebarUser = [
         {
             key: "name-page",
-            title: "Student Page",
+            title: "Admin Page",
         },
         {
             key: "dash-board",
@@ -90,10 +90,6 @@ function Sidebar({ isSidebarCollapsed, setIsSidebarCollapsed }) {
 
     const menuSidebarDepartment = [
         {
-            key: "name-page",
-            title: "Manager Page",
-        },
-        {
             key: "dash-board",
             title: "Dashboards",
             link: "/dash-board",
@@ -107,10 +103,6 @@ function Sidebar({ isSidebarCollapsed, setIsSidebarCollapsed }) {
         },
     ];
     const menuSidebarGuest = [
-        {
-            key: "name-page",
-            title: "Guest Page",
-        },
         {
             key: "dash-board",
             title: "Dashboards",

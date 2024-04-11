@@ -40,7 +40,6 @@ import ariticle from "../../apis/articleApi";
 import commentApi from "../../apis/commentApi";
 import FileSaver from "file-saver";
 import logApi from "../../apis/logApi";
-import ModalTerms from "../../components/ModalTerms/ModalTerms";
 const { Option } = Select;
 const ArticleManagerStudent = () => {
   const [category, setCategory] = useState([]);

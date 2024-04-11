@@ -236,7 +236,7 @@ const AccountManagement = () => {
               style={{ width: 100, textAlign: "center" }}
               icon={<CheckCircleOutlined />}
             >
-              Coordinator
+              Marketing
             </Tag>
           ) : text === "department" ? (
             <Tag
@@ -245,7 +245,7 @@ const AccountManagement = () => {
               style={{ width: 100, textAlign: "center" }}
               icon={<CheckCircleOutlined />}
             >
-              Manager
+              Department
             </Tag>
           ) : text === "guest" ? (
             <Tag
@@ -607,8 +607,8 @@ const AccountManagement = () => {
                 }
               >
                 <Option value="admin">Admin</Option>
-                <Option value="department">Manager</Option>
-                <Option value="marketing">Coordinator</Option>
+                <Option value="department">Department</Option>
+                <Option value="marketing">Marketing</Option>
                 <Option value="student">Student</Option>
                 <Option value="guest">Guest</Option>
               </Select>
@@ -720,8 +720,8 @@ const AccountManagement = () => {
                 }
               >
                 <Option value="admin">Admin</Option>
-                <Option value="department">Manager</Option>
-                <Option value="marketing">Coordinator</Option>
+                <Option value="department">Department</Option>
+                <Option value="marketing">Marketing</Option>
                 <Option value="student">Student</Option>
                 <Option value="guest">Guest</Option>
               </Select>

@@ -229,6 +229,8 @@ const DashBoard = () => {
                                             </ResponsiveContainer>
                                         </Col>
                                     </Row>
+                                
+
                                     <Row gutter={12}>
                                         <Col span={24}>
                                             <h3>Chart By Prive With Faculty</h3>
