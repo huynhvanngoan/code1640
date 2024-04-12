@@ -94,6 +94,7 @@ const DashBoard = () => {
                     count: item.count,
                 }));
                 setTotalAcademicYears(academicData);
+                setTotalAritcle(academicData);
                 const privateData = [
                     { name: "Public", count: facultyResponse.data.public },
                     { name: "Private", count: facultyResponse.data.private },
@@ -289,7 +290,7 @@ const DashBoard = () => {
                                             </ResponsiveContainer>
                                         </Col>
                                     </Row>
-                                    {totalByFaculty.length > 0 &&
+                                    {totalAritcle.length > 0 &&
                                         role === "department" && (
                                             <Row gutter={12}>
                                                 <Col span={24}>
@@ -329,7 +330,7 @@ const DashBoard = () => {
                                                                 fill="#8884d8"
                                                                 dataKey="count"
                                                             >
-                                                                {totalByFaculty.length ===
+                                                                {a.length ===
                                                                     1 && (
                                                                     <Cell
                                                                         key={`cell-0`}

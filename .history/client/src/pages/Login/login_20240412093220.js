@@ -27,9 +27,11 @@ const Login = () => {
               if (response.user.status !== "noactive") {
                 if (response.user.role === "student") {
                     history.push("article-student");
-                } else {
-                    history.push("/dash-board");
                 }
+                else {
+                  
+                }
+                history.push("/dash-board");
               } else {
                 notification["error"]({
                   message: `Notification`,

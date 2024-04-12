@@ -94,6 +94,7 @@ const DashBoard = () => {
                     count: item.count,
                 }));
                 setTotalAcademicYears(academicData);
+                setTotalAritcle(academicData);
                 const privateData = [
                     { name: "Public", count: facultyResponse.data.public },
                     { name: "Private", count: facultyResponse.data.private },

@@ -94,6 +94,7 @@ const DashBoard = () => {
                     count: item.count,
                 }));
                 setTotalAcademicYears(academicData);
+                setTotalAritcle(academicData);
                 const privateData = [
                     { name: "Public", count: facultyResponse.data.public },
                     { name: "Private", count: facultyResponse.data.private },
@@ -289,82 +290,77 @@ const DashBoard = () => {
                                             </ResponsiveContainer>
                                         </Col>
                                     </Row>
-                                    {totalByFaculty.length > 0 &&
-                                        role === "department" && (
-                                            <Row gutter={12}>
-                                                <Col span={24}>
-                                                    <h3>
-                                                        Percentage of Articles
-                                                        by Faculty
-                                                    </h3>
-                                                    <ResponsiveContainer
-                                                        width="100%"
-                                                        height={300}
+                                    {tota.length > 0 && (
+                                        <Row gutter={12}>
+                                            <Col span={24}>
+                                                <h3>
+                                                    Percentage of Articles by
+                                                    Faculty
+                                                </h3>
+                                                <ResponsiveContainer
+                                                    width="100%"
+                                                    height={300}
+                                                >
+                                                    <PieChart
+                                                        width={400}
+                                                        height={400}
                                                     >
-                                                        <PieChart
-                                                            width={400}
-                                                            height={400}
+                                                        <Pie
+                                                            data={
+                                                                totalByFaculty
+                                                            }
+                                                            cx="50%"
+                                                            cy="50%"
+                                                            labelLine={false}
+                                                            label={({
+                                                                name,
+                                                                percent,
+                                                            }) =>
+                                                                `${name} ${(
+                                                                    percent *
+                                                                    100
+                                                                ).toFixed(0)}%`
+                                                            }
+                                                            outerRadius={80}
+                                                            fill="#8884d8"
+                                                            dataKey="count"
                                                         >
-                                                            <Pie
-                                                                data={
-                                                                    totalByFaculty
-                                                                }
-                                                                cx="50%"
-                                                                cy="50%"
-                                                                labelLine={
-                                                                    false
-                                                                }
-                                                                label={({
-                                                                    name,
-                                                                    percent,
-                                                                }) =>
-                                                                    `${name} ${(
-                                                                        percent *
-                                                                        100
-                                                                    ).toFixed(
-                                                                        0
-                                                                    )}%`
-                                                                }
-                                                                outerRadius={80}
-                                                                fill="#8884d8"
-                                                                dataKey="count"
-                                                            >
-                                                                {totalByFaculty.length ===
-                                                                    1 && (
-                                                                    <Cell
-                                                                        key={`cell-0`}
-                                                                        fill={
-                                                                            COLORS[0]
-                                                                        }
-                                                                    />
-                                                                )}
-                                                                {totalByFaculty.length >
-                                                                    1 &&
-                                                                    totalByFaculty.map(
-                                                                        (
-                                                                            entry,
-                                                                            index
-                                                                        ) => (
-                                                                            <Cell
-                                                                                key={`cell-${index}`}
-                                                                                fill={
-                                                                                    COLORS[
-                                                                                        index %
-                                                                                            COLORS.length
-                                                                                    ]
-                                                                                }
-                                                                            />
-                                                                        )
-                                                                    )}
-                                                            </Pie>
-                                                            <Tooltip />
+                                                            {totalByFaculty.length ===
+                                                                1 && (
+                                                                <Cell
+                                                                    key={`cell-0`}
+                                                                    fill={
+                                                                        COLORS[0]
+                                                                    }
+                                                                />
+                                                            )}
                                                             {totalByFaculty.length >
-                                                                1 && <Legend />}
-                                                        </PieChart>
-                                                    </ResponsiveContainer>
-                                                </Col>
-                                            </Row>
-                                        )}
+                                                                1 &&
+                                                                totalByFaculty.map(
+                                                                    (
+                                                                        entry,
+                                                                        index
+                                                                    ) => (
+                                                                        <Cell
+                                                                            key={`cell-${index}`}
+                                                                            fill={
+                                                                                COLORS[
+                                                                                    index %
+                                                                                        COLORS.length
+                                                                                ]
+                                                                            }
+                                                                        />
+                                                                    )
+                                                                )}
+                                                        </Pie>
+                                                        <Tooltip />
+                                                        {totalByFaculty.length >
+                                                            1 && <Legend />}
+                                                    </PieChart>
+                                                </ResponsiveContainer>
+                                            </Col>
+                                        </Row>
+                                    )}
                                     <Row gutter={12}>
                                         <Col span={24}>
                                             <h3>
